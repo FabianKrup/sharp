@@ -17,6 +17,19 @@ fs.stat(inputPath, (err, stats) => {
 const image = sharp(inputPath);
 
 async function main() {
+  console.log("Environment variables:");
+  console.log("PATH:", process.env.PATH);
+  console.log("LD_LIBRARY_PATH:", process.env.LD_LIBRARY_PATH);
+  console.log("Current working directory:", process.cwd());
+
+  exec("which vips", (error, stdout, stderr) => {
+    if (error) {
+      console.error("vips not found in PATH");
+    } else {
+      console.log("vips location:", stdout);
+    }
+  });
+
   exec(
     `vips copy "${inputPath}" "${outputPath}"`,
     {
