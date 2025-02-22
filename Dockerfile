@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y \
     librsvg2-dev \
     libspng-dev \
     libtiff-dev \
-    # libsvips42t64
+    # libsvips42t64 \
     libwebp-dev \
     pkgconf \
     zlib1g-dev \
