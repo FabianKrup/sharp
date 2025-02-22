@@ -27,8 +27,9 @@ async function main() {
   try {
     const sharp = require("sharp");
 
-    const inputFileBuffer = fs.readFileSync("image.heif");
-    const image = sharp(inputFileBuffer);
+    //const inputFileBuffer = fs.readFileSync("image.heif");
+    //const image = sharp(inputFileBuffer);
+    const image = sharp("image.heif");
     await image.png().toFile("output-sharp.png");
 
     console.log("Conversion successful using sharp");
