@@ -60,6 +60,10 @@ RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/down
 ENV PATH="/usr/local/bin:${PATH}"
 ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
 
+# Apt cleanup
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 # Copy application files
