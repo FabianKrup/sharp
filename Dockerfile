@@ -77,11 +77,6 @@ RUN npm install
 # Create output directory and set permissions
 RUN mkdir -p /output && \
     chmod 777 /output
-
-# Test vips installation
-COPY image.heif .
-RUN vips copy image.heif /output/test-output2.png
-
 VOLUME /output
 
 CMD ["node", "index.js"]
