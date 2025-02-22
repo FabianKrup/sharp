@@ -43,8 +43,6 @@ RUN apt-get install -y \
     libvips-doc \
     libvips-tools \
     nip2
-# libarchive-dev \
-# libhwy-dev \
 
 RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.xz && \
     mkdir /libvips && cd /libvips && \
