@@ -12,8 +12,6 @@ fs.stat(inputPath, (err, stats) => {
   }
 });
 
-const image = sharp(inputPath);
-
 async function main() {
   console.log("Environment variables:");
   console.log("PATH:", process.env.PATH);
@@ -21,7 +19,20 @@ async function main() {
   console.log("Current working directory:", process.cwd());
 
   try {
-    await image.toFormat("png").toFile("/output/output-sharp.png");
+    const metadata = await sharp(inputPath).metadata();
+    console.log("Image metadata:", metadata);
+
+    const image = sharp(inputPath, {
+      failOnError: true,
+      limitInputPixels: false,
+    });
+
+    await image
+      .toFormat("png", {
+        quality: 100,
+      })
+      .toFile("/output/output-sharp.png");
+
     console.log("Conversion successful using sharp");
   } catch (err) {
     console.error("Sharp conversion error:", err);
