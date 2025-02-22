@@ -12,18 +12,18 @@ RUN apt-get update && apt-get install -y \
     gir1.2-vips-8.0 \
     libarchive-dev \
     libcfitsio-dev \
-    libcgif-dev \
+    # libcgif-dev
     libexpat1-dev \
     libfftw3-dev \
     libfontconfig-dev \
     libfreetype-dev \
     libglib2.0-dev \
     libheif-dev \
-    libhwy-dev \
+    # libhwy-dev
     libice-dev \
     libimagequant-dev \
     libjpeg-dev \
-    libjxl-dev \
+    # libjxl-dev
     liblcms2-dev \
     libmagickcore-dev \
     libmagickwand-dev \
@@ -33,9 +33,10 @@ RUN apt-get update && apt-get install -y \
     libpango1.0-dev \
     libpoppler-glib-dev \
     librsvg2-dev \
-    libspng-dev \
+    # libspng-dev => libpng-dev
+    libpng-dev \
     libtiff-dev \
-    libsvips42t64 \
+    # libsvips42t64
     libwebp-dev \
     pkgconf \
     zlib1g-dev \
