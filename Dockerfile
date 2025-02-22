@@ -19,11 +19,11 @@ RUN apt-get update && apt-get install -y \
     libfreetype-dev \
     libglib2.0-dev \
     libheif-dev \
-    # libhwy-dev
+    libhwy-dev \
     libice-dev \
     libimagequant-dev \
     libjpeg-dev \
-    # libjxl-dev
+    libjxl-dev \
     liblcms2-dev \
     libmagickcore-dev \
     libmagickwand-dev \
