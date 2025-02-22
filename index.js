@@ -1,14 +1,6 @@
 const fs = require("fs");
 const { execSync } = require("child_process");
 
-fs.stat("image.heif", (err, stats) => {
-  if (err) {
-    console.error("image.heif not found:", err);
-  } else {
-    console.log("image.heif size:", stats.size);
-  }
-});
-
 async function main() {
   // vips version
   console.log("vips version:", execSync("vips -v").toString());
