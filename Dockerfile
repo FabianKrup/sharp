@@ -1,4 +1,4 @@
-FROM node:22-bullseye
+FROM node:22-bookworm
 
 ENV LIBVIPS_VERSION=8.15.5
 
