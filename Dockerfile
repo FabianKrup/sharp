@@ -44,6 +44,7 @@ RUN apt-get install -y \
     libvips-tools \
     nip2
 
+# Build and install libvips
 RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.xz && \
     mkdir /libvips && cd /libvips && \
     tar xf /tmp/libvips.tar.gz --strip-components=1 && \
