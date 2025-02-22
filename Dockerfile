@@ -3,14 +3,14 @@ FROM node:22-bookworm
 ENV LIBVIPS_VERSION=8.15.5
 
 # Install dependencies
-# From https://packages.ubuntu.com/oracular/libvips-dev
+# From https://packages.debian.org/bookworm/libvips-dev
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     build-essential \
-    meson \
+    meson
+RUN apt-get install -y \
     gettext \
     gir1.2-vips-8.0 \
-    libarchive-dev \
     libcfitsio-dev \
     libcgif-dev \
     libexpat1-dev \
@@ -18,8 +18,8 @@ RUN apt-get update && apt-get install -y \
     libfontconfig-dev \
     libfreetype-dev \
     libglib2.0-dev \
+    libgsf-1-dev \
     libheif-dev \
-    libhwy-dev \
     libice-dev \
     libimagequant-dev \
     libjpeg-dev \
@@ -30,18 +30,21 @@ RUN apt-get update && apt-get install -y \
     libmatio-dev \
     libopenexr-dev \
     libopenslide-dev \
+    liborc-0.4-dev \
     libpango1.0-dev \
+    libpng-dev \
     libpoppler-glib-dev \
     librsvg2-dev \
-    libspng-dev \
     libtiff-dev \
-    # libsvips42t64 \
+    libsvips42 \
     libwebp-dev \
     pkgconf \
     zlib1g-dev \
     libvips-doc \
     libvips-tools \
     nip2
+# libarchive-dev \
+# libhwy-dev \
 
 RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.xz && \
     mkdir /libvips && cd /libvips && \
