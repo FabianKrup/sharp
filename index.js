@@ -1,10 +1,7 @@
-const sharp = require("sharp");
 const fs = require("fs");
-const path = require("path");
+const { execSync } = require("child_process");
 
-const inputPath = path.resolve(process.cwd(), "image.heif");
-
-fs.stat(inputPath, (err, stats) => {
+fs.stat("image.heif", (err, stats) => {
   if (err) {
     console.error("image.heif not found:", err);
   } else {
@@ -13,25 +10,26 @@ fs.stat(inputPath, (err, stats) => {
 });
 
 async function main() {
-  console.log("Environment variables:");
-  console.log("PATH:", process.env.PATH);
-  console.log("LD_LIBRARY_PATH:", process.env.LD_LIBRARY_PATH);
-  console.log("Current working directory:", process.cwd());
+  // vips version
+  console.log("vips version:", execSync("vips -v").toString());
+
+  // small timeouts
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   try {
-    const metadata = await sharp(inputPath).metadata();
-    console.log("Image metadata:", metadata);
+    execSync(`vips copy image.heif output-vips.png`);
 
-    const image = sharp(inputPath, {
-      failOnError: true,
-      limitInputPixels: false,
-    });
+    console.log("Conversion successful using vips CLI");
+  } catch (err) {
+    console.error("Vips attempt failed:", err);
+  }
 
-    await image
-      .toFormat("png", {
-        quality: 100,
-      })
-      .toFile("/output/output-sharp.png");
+  try {
+    const sharp = require("sharp");
+
+    const inputFileBuffer = fs.readFileSync("image.heif");
+    const image = sharp(inputFileBuffer);
+    await image.png().toFile("output-sharp.png");
 
     console.log("Conversion successful using sharp");
   } catch (err) {

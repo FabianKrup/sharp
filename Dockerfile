@@ -57,10 +57,6 @@ RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/down
     cd .. && \
     rm -rf /libvips /tmp/libvips.tar.gz
 
-# Set environment variables for libvips
-ENV PATH="/usr/local/bin:${PATH}"
-ENV LD_LIBRARY_PATH="/usr/local/lib:${LD_LIBRARY_PATH}"
-
 # Apt cleanup
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -79,5 +75,8 @@ RUN npm install
 RUN mkdir -p /output && \
     chmod 777 /output
 VOLUME /output
+
+COPY image.heif .
+RUN vips copy image.heif /output/image.png
 
 CMD ["node", "index.js"]
