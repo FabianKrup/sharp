@@ -33,8 +33,7 @@ RUN apt-get update && apt-get install -y \
     libpango1.0-dev \
     libpoppler-glib-dev \
     librsvg2-dev \
-    # libspng-dev => libpng-dev
-    libpng-dev \
+    libspng-dev \
     libtiff-dev \
     # libsvips42t64
     libwebp-dev \
