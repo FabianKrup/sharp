@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y \
     gir1.2-vips-8.0 \
     libarchive-dev \
     libcfitsio-dev \
-    # libcgif-dev
+    libcgif-dev \
     libexpat1-dev \
     libfftw3-dev \
     libfontconfig-dev \
