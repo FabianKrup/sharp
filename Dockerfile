@@ -2,23 +2,46 @@ FROM node:22-bullseye
 
 ENV LIBVIPS_VERSION=8.15.5
 
+# Install dependencies
+# From https://packages.ubuntu.com/oracular/libvips-dev
 RUN apt-get update && apt-get install -y \
     software-properties-common \
     build-essential \
-    pkg-config \
-    libglib2.0-dev \
-    libexpat1-dev \
     meson \
-    libjpeg62-turbo-dev \
-    libexif-dev \
-    librsvg2-dev \
-    libtiff-dev \
+    gettext \
+    gir1.2-vips-8.0 \
+    libarchive-dev \
+    libcfitsio-dev \
+    libcgif-dev \
+    libexpat1-dev \
     libfftw3-dev \
-    liblcms2-dev \
-    libpng-dev \
+    libfontconfig-dev \
+    libfreetype-dev \
+    libglib2.0-dev \
+    libheif-dev \
+    libhwy-dev \
+    libice-dev \
     libimagequant-dev \
+    libjpeg-dev \
+    libjxl-dev \
+    liblcms2-dev \
+    libmagickcore-dev \
+    libmagickwand-dev \
+    libmatio-dev \
+    libopenexr-dev \
+    libopenslide-dev \
+    libpango1.0-dev \
+    libpoppler-glib-dev \
+    librsvg2-dev \
+    libspng-dev \
+    libtiff-dev \
+    libsvips42t64 \
     libwebp-dev \
-    libheif-dev 
+    pkgconf \
+    zlib1g-dev \
+    libvips-doc \
+    libvips-tools \
+    nip2
 
 RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.xz && \
     mkdir /libvips && cd /libvips && \
