@@ -71,12 +71,4 @@ COPY package*.json ./
 ENV SHARP_FORCE_GLOBAL_LIBVIPS=1
 RUN npm install
 
-# Create output directory and set permissions
-RUN mkdir -p /output && \
-    chmod 777 /output
-VOLUME /output
-
-COPY image.heif .
-RUN vips copy image.heif /output/image.png
-
 CMD ["node", "index.js"]
