@@ -36,7 +36,7 @@ RUN apt-get install -y \
     libpoppler-glib-dev \
     librsvg2-dev \
     libtiff-dev \
-    libsvips42 \
+    libvips42 \
     libwebp-dev \
     pkgconf \
     zlib1g-dev \
