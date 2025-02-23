@@ -69,8 +69,7 @@ COPY . .
 COPY package*.json ./
 
 # Install dependencies and rebuild sharp
-RUN npm install
-RUN npm rebuild sharp
+RUN npm install && npm rebuild sharp
 
 # Create output directory and declare volume
 RUN mkdir -p /app/output
