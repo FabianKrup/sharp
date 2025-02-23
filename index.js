@@ -6,7 +6,7 @@ async function main() {
 
     const inputFileBuffer = fs.readFileSync("image.heif");
     const image = sharp(inputFileBuffer);
-    await image.png().toFile("output-sharp.png");
+    await image.png().toFile("/app/output/output-sharp.png");
 
     console.log("Conversion successful using sharp");
   } catch (err) {

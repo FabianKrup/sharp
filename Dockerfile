@@ -72,4 +72,8 @@ ENV SHARP_FORCE_GLOBAL_LIBVIPS=1
 RUN npm install
 RUN npm rebuild sharp
 
+# Create output directory and declare volume
+RUN mkdir -p /app/output
+VOLUME /app/output
+
 CMD ["node", "index.js"]
