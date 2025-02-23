@@ -69,6 +69,7 @@ COPY . .
 COPY package*.json ./
 
 # Install dependencies and rebuild sharp
+RUN npm install -g npm@^11.1.0
 RUN npm install && npm rebuild sharp
 
 # Create output directory and declare volume
