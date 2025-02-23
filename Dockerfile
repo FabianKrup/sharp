@@ -42,9 +42,7 @@ RUN apt-get install -y \
     zlib1g-dev \
     libvips-doc \
     libvips-tools \
-    nip2 \
-    libde265-dev \ 
-    libx265-dev 
+    nip2
 
 # Build and install libvips
 RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.xz && \
@@ -72,5 +70,6 @@ COPY package*.json ./
 # Set Sharp to use global libvips
 ENV SHARP_FORCE_GLOBAL_LIBVIPS=1
 RUN npm install
+RUN npm rebuild sharp
 
 CMD ["node", "index.js"]

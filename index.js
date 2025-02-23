@@ -1,27 +1,11 @@
 const fs = require("fs");
-const { execSync } = require("child_process");
 
 async function main() {
-  // vips version
-  console.log("vips version:", execSync("vips -v").toString());
-
-  // small timeouts
-  await new Promise((resolve) => setTimeout(resolve, 5000));
-
-  try {
-    execSync(`vips copy image.heif output-vips.png`);
-
-    console.log("Conversion successful using vips CLI");
-  } catch (err) {
-    console.error("Vips attempt failed:", err);
-  }
-
   try {
     const sharp = require("sharp");
 
-    //const inputFileBuffer = fs.readFileSync("image.heif");
-    //const image = sharp(inputFileBuffer);
-    const image = sharp("image.heif");
+    const inputFileBuffer = fs.readFileSync("image.heif");
+    const image = sharp(inputFileBuffer);
     await image.png().toFile("output-sharp.png");
 
     console.log("Conversion successful using sharp");
