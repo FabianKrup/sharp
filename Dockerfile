@@ -3,7 +3,7 @@ FROM oven/bun:1.2-debian
 ENV LIBVIPS_VERSION=8.15.5
 
 # Install dependencies
-# From https://packages.debian.org/bookworm/libvips-dev
+# From https://packages.debian.org/bullseye/libvips-dev
 RUN apt-get update && apt-get install -y \
     build-essential \
     meson \
