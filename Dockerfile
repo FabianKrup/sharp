@@ -1,29 +1,28 @@
-FROM node:22-bookworm
+FROM oven/bun:1.2-debian
 
 ENV LIBVIPS_VERSION=8.15.5
 
 # Install dependencies
 # From https://packages.debian.org/bookworm/libvips-dev
 RUN apt-get update && apt-get install -y \
-    software-properties-common \
     build-essential \
-    meson
+    meson \
+    wget
 RUN apt-get install -y \
+    fftw3-dev \
     gettext \
     gir1.2-vips-8.0 \
     libcfitsio-dev \
-    libcgif-dev \
     libexpat1-dev \
-    libfftw3-dev \
-    libfontconfig-dev \
-    libfreetype-dev \
+    libfontconfig1-dev \
+    libfreetype6-dev \
+    libgif-dev \
     libglib2.0-dev \
     libgsf-1-dev \
     libheif-dev \
     libice-dev \
     libimagequant-dev \
     libjpeg-dev \
-    libjxl-dev \
     liblcms2-dev \
     libmagickcore-dev \
     libmagickwand-dev \
@@ -38,7 +37,7 @@ RUN apt-get install -y \
     libtiff-dev \
     libvips42 \
     libwebp-dev \
-    pkgconf \
+    pkg-config \
     zlib1g-dev \
     libvips-doc \
     libvips-tools \
@@ -68,12 +67,11 @@ COPY . .
 COPY package*.json ./
 
 # Install dependencies and rebuild sharp
-RUN npm install -g npm@~11.1.0
-RUN npm install
+RUN bun install
 # rebuild sharp in postinstall
 
 # Create output directory and declare volume
 RUN mkdir -p /app/output
 VOLUME /app/output
 
-CMD ["node", "index.js"]
+CMD ["bun", "index.js"]

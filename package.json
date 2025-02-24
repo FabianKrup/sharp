@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build-docker": "docker build --no-cache -t sharp-image .",
-    "postinstall": "npm rebuild sharp"
+    "postinstall": "bun rebuild sharp"
   },
   "keywords": [],
   "author": "",
