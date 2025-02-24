@@ -8,6 +8,7 @@ COPY package*.json ./
 
 # Install node dependencies
 RUN bun install --no-cache
+RUN cd node_modules/sharp && bun install
 
 # Create output directory and declare volume
 RUN mkdir -p /app/output
