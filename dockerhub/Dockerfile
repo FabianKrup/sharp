@@ -47,7 +47,7 @@ RUN apt-get install -y \
 RUN wget -O /tmp/libvips.tar.gz https://github.com/libvips/libvips/releases/download/v$LIBVIPS_VERSION/vips-$LIBVIPS_VERSION.tar.xz && \
     mkdir /libvips && cd /libvips && \
     tar xf /tmp/libvips.tar.gz --strip-components=1 && \
-    meson setup build -Dheif=enabled && \
+    meson setup build && \
     cd build && \
     meson compile && \
     meson test && \
