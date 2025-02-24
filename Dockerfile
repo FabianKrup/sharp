@@ -67,7 +67,7 @@ COPY . .
 COPY package*.json ./
 
 # Install node dependencies
-RUN bun install
+RUN bun install --no-cache
 
 # Create output directory and declare volume
 RUN mkdir -p /app/output
