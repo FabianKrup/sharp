@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build-docker": "docker build --no-cache -t sharp-image .",
+    "build-base": "docker build --no-cache -f dockerhub/Dockerfile -t node-libvips:22-bookworm .",
+    "build-docker": "npm run build-base && docker build --no-cache -t sharp-image .",
     "postinstall": "npm rebuild sharp"
   },
   "keywords": [],
