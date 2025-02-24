@@ -1,7 +1,6 @@
 FROM node:22-bookworm
 
 ENV LIBVIPS_VERSION=8.15.5
-ENV SHARP_FORCE_GLOBAL_LIBVIPS=1
 
 # Install dependencies
 # From https://packages.debian.org/bookworm/libvips-dev
