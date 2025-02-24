@@ -66,9 +66,8 @@ WORKDIR /app
 COPY . .
 COPY package*.json ./
 
-# Install dependencies and rebuild sharp
+# Install node dependencies
 RUN bun install
-# rebuild sharp in postinstall
 
 # Create output directory and declare volume
 RUN mkdir -p /app/output

@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build-docker": "docker build --no-cache -t sharp-image .",
-    "postinstall": "bun rebuild sharp"
+    "build-docker": "docker build --no-cache -t sharp-image ."
   },
   "keywords": [],
   "author": "",
@@ -14,5 +13,8 @@
     "node-addon-api": "^8.3.0",
     "node-gyp": "^11.1.0",
     "sharp": "~0.33.5"
-  }
+  },
+  "trustedDependencies": [
+    "sharp"
+  ]
 }
