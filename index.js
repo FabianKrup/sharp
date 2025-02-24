@@ -1,9 +1,8 @@
 const fs = require("fs");
+const sharp = require("sharp");
 
 async function main() {
   try {
-    const sharp = require("sharp");
-
     const inputFileBuffer = fs.readFileSync("image.heif");
     const image = sharp(inputFileBuffer);
     await image.png().toFile("/app/output/output-sharp.png");
