@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "build-base": "docker build --no-cache -f dockerhub/Dockerfile -t oven/bun-libvips:1.2-debian .",
-    "build-docker": "bun run build-base && docker build --no-cache -t sharp-image ."
+    "build-docker": "bun run build-base && docker build --no-cache -t sharp-image .",
+    "postinstall": "cd node_modules/sharp && bun install"
   },
   "keywords": [],
   "author": "",
