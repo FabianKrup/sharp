@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build-docker": "docker build --no-cache -t sharp-image ."
+    "build-docker": "docker build --no-cache -t sharp-image .",
+    "postinstall": "npm rebuild sharp"
   },
   "keywords": [],
   "author": "",
